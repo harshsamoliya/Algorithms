@@ -1,3 +1,9 @@
+// a+b+c == targerSum in an array
+// time Complexity O(n*n)
+// Space Complexity O(n)
+
+
+
 import java.util.*;
 
 class Program {
