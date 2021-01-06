@@ -1,6 +1,7 @@
 // Time complexity -> O((2^n)*n)
 // Space complexity -> O((2^n)*n)
 
+// Iterative approach
 import java.util.*;
 
 class Program {
@@ -19,3 +20,27 @@ class Program {
 		return subset;
 	}
 }
+// recursive _>
+import java.util.*;
+
+class Program {
+  public static List<List<Integer>> powerset(List<Integer> array) {
+		return powerset(array,array.size()-1);
+	}
+	static List<List<Integer>> powerset(List<Integer> array,int idx){
+		if(idx<0){
+			List<List<Integer>> empt = new ArrayList<>();
+			empt.add(new ArrayList<>());
+			return empt;
+		}
+		List<List<Integer>> subset =  powerset(array,idx-1);
+		int length = subset.size();
+		for(int i = 0 ; i<length ; i++){
+			List<Integer> currentset = new ArrayList<>(subset.get(i));
+			currentset.add(array.get(idx));
+			subset.add(currentset);
+		}
+		return subset;
+	}
+}
+
