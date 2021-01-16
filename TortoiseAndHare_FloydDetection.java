@@ -1,51 +1,30 @@
 // Time complexity -> O(n)
 // space complexity -> O(1)
+import java.util.*;
 
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
- */
-public class Solution {
-    public boolean hasCycle(ListNode head) {
-        if(head==null) return false;
-        
-        ListNode slow = head;
-        ListNode fast = head;
-        while(fast!=null && fast.next!=null){
-            slow = slow.next;
-            fast = fast.next.next;
-            if(slow==fast){
-                return true;
-            }
-        }
-        return false;
+class Program {
+  public static LinkedList findLoop(LinkedList head) {
+		LinkedList tortoise = head.next;
+		LinkedList Hare = head.next.next;
+		while(tortoise!=Hare){
+			tortoise = tortoise.next;
+			Hare = Hare.next.next;
+		}
+		tortoise = head;
+		while(tortoise!=Hare){
+			tortoise = tortoise.next;
+			Hare = Hare.next;
+		}
+		return tortoise;
+  }
+
+  static class LinkedList {
+    int value;
+    LinkedList next = null;
+
+    public LinkedList(int value) {
+      this.value = value;
     }
+  }
 }
-/*
-Start of the cycle  contion :
-        if(head==null || head.next==null) return null;
-        ListNode slow = head;
-        ListNode fast = head;
-        while(fast!=null && fast.next!=null){
-            slow = slow.next;
-            fast = fast.next.next;
-            if(slow==fast){
-                break;
-            }
-        }
-        if(slow != fast) return null;
-        slow = head;
-        while(slow != fast){
-            slow = slow.next;
-            fast = fast.next;
-        }
-        return slow;
 
-/*
