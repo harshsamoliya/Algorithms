@@ -37,8 +37,8 @@ class Program {
                 if(!node.children.containsKey(c)){
                     TrieNode newnode = new TrieNode();
                     node.children.put(c,newnode);
-								}
-								node = node.children.get(c);
+		}
+		node = node.children.get(c);
             }
             node.children.put(endSymbol,null);
         }
