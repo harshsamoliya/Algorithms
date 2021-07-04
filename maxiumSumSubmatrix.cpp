@@ -1,3 +1,6 @@
+// Time and SPace complexity -> O(w*h)
+// where w and h are width and height
+
 #include <vector>
 using namespace std;
 vector<vector<int>> createSumMatrix(vector<vector<int>> &matrix){
